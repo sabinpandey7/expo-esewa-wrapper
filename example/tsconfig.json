@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "expo-esewa-wrapper": ["../src/index"],
+      "expo-esewa-wrapper/*": ["../src/*"]
+    }
+  }
+}

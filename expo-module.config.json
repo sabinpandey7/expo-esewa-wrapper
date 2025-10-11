@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["ExpoEsewaWrapperModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.esewawrapper.ExpoEsewaWrapperModule"]
+  }
+}
