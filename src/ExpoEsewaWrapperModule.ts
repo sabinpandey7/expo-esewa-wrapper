@@ -1,12 +1,41 @@
-import { NativeModule, requireNativeModule } from 'expo';
+import { requireNativeModule } from "expo";
+import { credentialsType, paymentOptions, resultCode } from "./Esewa.types";
 
-import { ExpoEsewaWrapperModuleEvents } from './ExpoEsewaWrapper.types';
+const ExpoEsewaWrapperModule = requireNativeModule("ExpoEsewaWrapper");
 
-declare class ExpoEsewaWrapperModule extends NativeModule<ExpoEsewaWrapperModuleEvents> {
-  PI: number;
-  hello(): string;
-  setValueAsync(value: string): Promise<void>;
+export async function startEsewaPayment(
+  cred: credentialsType,
+  options: paymentOptions
+) {
+  const resp = await ExpoEsewaWrapperModule.startEsewaPayment(cred, options);
+
+  console.log(resp);
+  if (resp.resultCode === resultCode.ok) {
+    let data = "";
+
+    try {
+      data = JSON.parse(resp.data);
+    } catch (error) {
+      data = resp.data;
+    }
+
+    return {
+      code: resp.resultCode,
+      success: true,
+      data: data,
+    };
+  }
+  if (resp.resultCode === resultCode.cancelled) {
+    return {
+      code: resp.resultCode,
+      success: false,
+      message: "Cancelled by user",
+    };
+  }
+  return {
+    code: resp.resultCode,
+    success: false,
+    message: resp.data,
+  };
 }
 
-// This call loads the native module object from the JSI.
-export default requireNativeModule<ExpoEsewaWrapperModule>('ExpoEsewaWrapper');

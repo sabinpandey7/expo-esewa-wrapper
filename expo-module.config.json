@@ -4,6 +4,13 @@
     "modules": ["ExpoEsewaWrapperModule"]
   },
   "android": {
+    "gradleAarProjects": [
+      {
+        "name": "esewa-aar",
+        "aarFilePath": "android/libs/esewa.aar"
+      }
+    ],
     "modules": ["expo.modules.esewawrapper.ExpoEsewaWrapperModule"]
   }
 }
+

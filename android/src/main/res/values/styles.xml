@@ -1,0 +1,4 @@
+<resources>
+    <style name="EsewaWrapperTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </style>
+</resources>
