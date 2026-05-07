@@ -11,17 +11,17 @@ export default function App() {
             await ExpoEsewaWrapper.startEsewaPayment(
               {
                 clientId:
-                  "JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R1",
+                  "JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R",
                 secretKey: "BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ==",
-                environment: "production",
+                environment: "test",
               },
               {
                 amount: "100",
                 productName: "test",
                 reference: "opr-123132",
                 callbackUrl: "http://localhost:8999",
-              }
-            )
+              },
+            ),
           )
         }
       />
