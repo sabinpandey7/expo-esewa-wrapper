@@ -20,8 +20,8 @@ export default function App() {
                 productName: "test",
                 reference: "opr-123132",
                 callbackUrl: "http://localhost:8999",
-              }
-            )
+              },
+            ),
           )
         }
       />
